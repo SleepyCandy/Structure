@@ -1,0 +1,32 @@
+package stack;
+public class CreateStack{
+	private int maxStack;
+	private int indexS;
+	private Object[] stack;
+	
+	public CreateStack(int size){
+		maxStack = size;
+		indexS = -1;
+		stack = new Object[maxStack];
+	}
+	public void InsStack(Object data)throws Exception{
+		if(indexS + 1 < maxStack){
+			indexS++;
+			stack[indexS]=data;
+		}
+		else{
+			throw new Exception("stack overflow");
+		}
+		
+	}
+	public  Object DecStack() throws Exception{
+		if(indexS>0){
+			Object data = stack[indexS];
+			indexS--;
+			return data;
+		}
+		else{
+			throw new Exception("stack underflow");
+		}
+	}
+}
